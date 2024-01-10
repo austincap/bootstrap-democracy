@@ -20,13 +20,84 @@ export interface Status {
   details?: { "@type"?: string }[];
 }
 
+export interface PageRequest {
+  /** @format byte */
+  key?: string;
+
+  /** @format uint64 */
+  offset?: string;
+
+  /** @format uint64 */
+  limit?: string;
+  count_total?: boolean;
+  reverse?: boolean;
+}
+
+export interface PageResponse {
+  /** @format byte */
+  next_key?: string;
+
+  /** @format uint64 */
+  total?: string;
+}
+
 export type Params = object;
+
+export interface QueryAllUserResponse {
+  User?: { id?: string; address?: string; balance?: string; state?: string; sponsor?: string; creator?: string }[];
+  pagination?: { next_key?: string; total?: string };
+}
+
+export interface QueryGetUserResponse {
+  User?: { id?: string; address?: string; balance?: string; state?: string; sponsor?: string; creator?: string };
+}
 
 export interface QueryParamsResponse {
   params?: object;
 }
 
+export interface User {
+  /** @format uint64 */
+  id?: string;
+  address?: string;
+
+  /** @format uint64 */
+  balance?: string;
+  state?: string;
+  sponsor?: string;
+  creator?: string;
+}
+
+export interface MsgAddCitizenResponse {
+  /** @format uint64 */
+  id?: string;
+}
+
+export interface MsgAddProposalResponse {
+  /** @format uint64 */
+  id?: string;
+}
+
+export interface MsgCreateUserResponse {
+  /** @format uint64 */
+  id?: string;
+}
+
+export type MsgDeleteUserResponse = object;
+
 export type MsgUpdateParamsResponse = object;
+
+export type MsgUpdateUserResponse = object;
+
+export interface MsgVoteForProposalResponse {
+  /** @format uint64 */
+  id?: string;
+}
+
+export interface MsgVoteonProposalResponse {
+  /** @format uint64 */
+  id?: string;
+}
 
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, ResponseType } from "axios";
 
@@ -162,6 +233,62 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
   queryParams = (params: RequestParams = {}) =>
     this.request<{ params?: object }, { code?: number; message?: string; details?: { "@type"?: string }[] }>({
       path: `/example/example/params`,
+      method: "GET",
+      ...params,
+    });
+
+  /**
+   * No description
+   *
+   * @tags Query
+   * @name QueryUserAll
+   * @request GET:/example/example/user
+   */
+  queryUserAll = (
+    query?: {
+      "pagination.key"?: string;
+      "pagination.offset"?: string;
+      "pagination.limit"?: string;
+      "pagination.count_total"?: boolean;
+      "pagination.reverse"?: boolean;
+    },
+    params: RequestParams = {},
+  ) =>
+    this.request<
+      {
+        User?: {
+          id?: string;
+          address?: string;
+          balance?: string;
+          state?: string;
+          sponsor?: string;
+          creator?: string;
+        }[];
+        pagination?: { next_key?: string; total?: string };
+      },
+      { code?: number; message?: string; details?: { "@type"?: string }[] }
+    >({
+      path: `/example/example/user`,
+      method: "GET",
+      query: query,
+      ...params,
+    });
+
+  /**
+   * No description
+   *
+   * @tags Query
+   * @name QueryUser
+   * @request GET:/example/example/user/{id}
+   */
+  queryUser = (id: string, params: RequestParams = {}) =>
+    this.request<
+      {
+        User?: { id?: string; address?: string; balance?: string; state?: string; sponsor?: string; creator?: string };
+      },
+      { code?: number; message?: string; details?: { "@type"?: string }[] }
+    >({
+      path: `/example/example/user/${id}`,
       method: "GET",
       ...params,
     });

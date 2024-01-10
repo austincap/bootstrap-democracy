@@ -8,6 +8,23 @@ import (
 )
 
 func RegisterInterfaces(registry cdctypes.InterfaceRegistry) {
+	registry.RegisterImplementations((*sdk.Msg)(nil),
+		&MsgCreateUser{},
+		&MsgUpdateUser{},
+		&MsgDeleteUser{},
+	)
+	registry.RegisterImplementations((*sdk.Msg)(nil),
+		&MsgAddCitizen{},
+	)
+	registry.RegisterImplementations((*sdk.Msg)(nil),
+		&MsgAddProposal{},
+	)
+	registry.RegisterImplementations((*sdk.Msg)(nil),
+		&MsgVoteonProposal{},
+	)
+	registry.RegisterImplementations((*sdk.Msg)(nil),
+		&MsgVoteForProposal{},
+	)
 	// this line is used by starport scaffolding # 3
 
 	registry.RegisterImplementations((*sdk.Msg)(nil),

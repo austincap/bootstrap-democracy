@@ -35,6 +35,139 @@ paths:
                   additionalProperties: {}
       tags:
         - Query
+  /example/example/user:
+    get:
+      operationId: Query_UserAll
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              User:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uint64
+                    address:
+                      type: string
+                    balance:
+                      type: string
+                      format: uint64
+                    state:
+                      type: string
+                    sponsor:
+                      type: string
+                    creator:
+                      type: string
+              pagination:
+                type: object
+                properties:
+                  next_key:
+                    type: string
+                    format: byte
+                  total:
+                    type: string
+                    format: uint64
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: pagination.key
+          in: query
+          required: false
+          type: string
+          format: byte
+        - name: pagination.offset
+          in: query
+          required: false
+          type: string
+          format: uint64
+        - name: pagination.limit
+          in: query
+          required: false
+          type: string
+          format: uint64
+        - name: pagination.count_total
+          in: query
+          required: false
+          type: boolean
+        - name: pagination.reverse
+          in: query
+          required: false
+          type: boolean
+      tags:
+        - Query
+  /example/example/user/{id}:
+    get:
+      operationId: Query_User
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              User:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uint64
+                  address:
+                    type: string
+                  balance:
+                    type: string
+                    format: uint64
+                  state:
+                    type: string
+                  sponsor:
+                    type: string
+                  creator:
+                    type: string
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          format: uint64
+      tags:
+        - Query
 definitions:
   Any:
     type: object
@@ -58,12 +191,139 @@ definitions:
             '@type':
               type: string
           additionalProperties: {}
+  PageRequest:
+    type: object
+    properties:
+      key:
+        type: string
+        format: byte
+      offset:
+        type: string
+        format: uint64
+      limit:
+        type: string
+        format: uint64
+      count_total:
+        type: boolean
+      reverse:
+        type: boolean
+  PageResponse:
+    type: object
+    properties:
+      next_key:
+        type: string
+        format: byte
+      total:
+        type: string
+        format: uint64
   Params:
     type: object
+  QueryAllUserResponse:
+    type: object
+    properties:
+      User:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uint64
+            address:
+              type: string
+            balance:
+              type: string
+              format: uint64
+            state:
+              type: string
+            sponsor:
+              type: string
+            creator:
+              type: string
+      pagination:
+        type: object
+        properties:
+          next_key:
+            type: string
+            format: byte
+          total:
+            type: string
+            format: uint64
+  QueryGetUserResponse:
+    type: object
+    properties:
+      User:
+        type: object
+        properties:
+          id:
+            type: string
+            format: uint64
+          address:
+            type: string
+          balance:
+            type: string
+            format: uint64
+          state:
+            type: string
+          sponsor:
+            type: string
+          creator:
+            type: string
   QueryParamsResponse:
     type: object
     properties:
       params:
         type: object
+  User:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uint64
+      address:
+        type: string
+      balance:
+        type: string
+        format: uint64
+      state:
+        type: string
+      sponsor:
+        type: string
+      creator:
+        type: string
+  MsgAddCitizenResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uint64
+  MsgAddProposalResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uint64
+  MsgCreateUserResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uint64
+  MsgDeleteUserResponse:
+    type: object
   MsgUpdateParamsResponse:
     type: object
+  MsgUpdateUserResponse:
+    type: object
+  MsgVoteForProposalResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uint64
+  MsgVoteonProposalResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uint64

@@ -6,42 +6,53 @@ import { msgTypes } from './registry';
 import { IgniteClient } from "../client"
 import { MissingWalletError } from "../helpers"
 import { Api } from "./rest";
-import { GenesisState } from "./types/example/example/genesis";
-import { MsgUpdateParams } from "./types/example/example/tx";
-import { MsgUpdateParamsResponse } from "./types/example/example/tx";
-import { Params } from "./types/example/example/params";
-import { QueryParamsRequest } from "./types/example/example/query";
+import { MsgCreateUser } from "./types/example/example/tx";
+import { MsgAddProposal } from "./types/example/example/tx";
+import { QueryGetUserResponse } from "./types/example/example/query";
+import { MsgVoteonProposalResponse } from "./types/example/example/tx";
 import { QueryParamsResponse } from "./types/example/example/query";
+import { MsgUpdateParams } from "./types/example/example/tx";
+import { MsgUpdateUser } from "./types/example/example/tx";
+import { Params } from "./types/example/example/params";
+import { QueryGetUserRequest } from "./types/example/example/query";
+import { QueryParamsRequest } from "./types/example/example/query";
+import { MsgCreateUserResponse } from "./types/example/example/tx";
+import { MsgUpdateUserResponse } from "./types/example/example/tx";
+import { MsgDeleteUser } from "./types/example/example/tx";
+import { MsgDeleteUserResponse } from "./types/example/example/tx";
+import { MsgAddCitizenResponse } from "./types/example/example/tx";
+import { MsgVoteonProposal } from "./types/example/example/tx";
+import { User } from "./types/example/example/user";
+import { GenesisState } from "./types/example/example/genesis";
+import { MsgUpdateParamsResponse } from "./types/example/example/tx";
+import { MsgAddCitizen } from "./types/example/example/tx";
+import { MsgAddProposalResponse } from "./types/example/example/tx";
+import { QueryAllUserRequest } from "./types/example/example/query";
+import { QueryAllUserResponse } from "./types/example/example/query";
 
 
-export { GenesisState, MsgUpdateParams, MsgUpdateParamsResponse, Params, QueryParamsRequest, QueryParamsResponse };
+export { MsgCreateUser, MsgAddProposal, QueryGetUserResponse, MsgVoteonProposalResponse, QueryParamsResponse, MsgUpdateParams, MsgUpdateUser, Params, QueryGetUserRequest, QueryParamsRequest, MsgCreateUserResponse, MsgUpdateUserResponse, MsgDeleteUser, MsgDeleteUserResponse, MsgAddCitizenResponse, MsgVoteonProposal, User, GenesisState, MsgUpdateParamsResponse, MsgAddCitizen, MsgAddProposalResponse, QueryAllUserRequest, QueryAllUserResponse };
 
-type sendGenesisStateParams = {
-  value: GenesisState,
+type sendMsgCreateUserParams = {
+  value: MsgCreateUser,
   fee?: StdFee,
   memo?: string
 };
 
-type sendMsgUpdateParamsParams = {
-  value: MsgUpdateParams,
+type sendMsgAddProposalParams = {
+  value: MsgAddProposal,
   fee?: StdFee,
   memo?: string
 };
 
-type sendMsgUpdateParamsResponseParams = {
-  value: MsgUpdateParamsResponse,
+type sendQueryGetUserResponseParams = {
+  value: QueryGetUserResponse,
   fee?: StdFee,
   memo?: string
 };
 
-type sendParamsParams = {
-  value: Params,
-  fee?: StdFee,
-  memo?: string
-};
-
-type sendQueryParamsRequestParams = {
-  value: QueryParamsRequest,
+type sendMsgVoteonProposalResponseParams = {
+  value: MsgVoteonProposalResponse,
   fee?: StdFee,
   memo?: string
 };
@@ -52,29 +63,205 @@ type sendQueryParamsResponseParams = {
   memo?: string
 };
 
+type sendMsgUpdateParamsParams = {
+  value: MsgUpdateParams,
+  fee?: StdFee,
+  memo?: string
+};
 
-type genesisStateParams = {
+type sendMsgUpdateUserParams = {
+  value: MsgUpdateUser,
+  fee?: StdFee,
+  memo?: string
+};
+
+type sendParamsParams = {
+  value: Params,
+  fee?: StdFee,
+  memo?: string
+};
+
+type sendQueryGetUserRequestParams = {
+  value: QueryGetUserRequest,
+  fee?: StdFee,
+  memo?: string
+};
+
+type sendQueryParamsRequestParams = {
+  value: QueryParamsRequest,
+  fee?: StdFee,
+  memo?: string
+};
+
+type sendMsgCreateUserResponseParams = {
+  value: MsgCreateUserResponse,
+  fee?: StdFee,
+  memo?: string
+};
+
+type sendMsgUpdateUserResponseParams = {
+  value: MsgUpdateUserResponse,
+  fee?: StdFee,
+  memo?: string
+};
+
+type sendMsgDeleteUserParams = {
+  value: MsgDeleteUser,
+  fee?: StdFee,
+  memo?: string
+};
+
+type sendMsgDeleteUserResponseParams = {
+  value: MsgDeleteUserResponse,
+  fee?: StdFee,
+  memo?: string
+};
+
+type sendMsgAddCitizenResponseParams = {
+  value: MsgAddCitizenResponse,
+  fee?: StdFee,
+  memo?: string
+};
+
+type sendMsgVoteonProposalParams = {
+  value: MsgVoteonProposal,
+  fee?: StdFee,
+  memo?: string
+};
+
+type sendUserParams = {
+  value: User,
+  fee?: StdFee,
+  memo?: string
+};
+
+type sendGenesisStateParams = {
   value: GenesisState,
+  fee?: StdFee,
+  memo?: string
+};
+
+type sendMsgUpdateParamsResponseParams = {
+  value: MsgUpdateParamsResponse,
+  fee?: StdFee,
+  memo?: string
+};
+
+type sendMsgAddCitizenParams = {
+  value: MsgAddCitizen,
+  fee?: StdFee,
+  memo?: string
+};
+
+type sendMsgAddProposalResponseParams = {
+  value: MsgAddProposalResponse,
+  fee?: StdFee,
+  memo?: string
+};
+
+type sendQueryAllUserRequestParams = {
+  value: QueryAllUserRequest,
+  fee?: StdFee,
+  memo?: string
+};
+
+type sendQueryAllUserResponseParams = {
+  value: QueryAllUserResponse,
+  fee?: StdFee,
+  memo?: string
+};
+
+
+type msgCreateUserParams = {
+  value: MsgCreateUser,
+};
+
+type msgAddProposalParams = {
+  value: MsgAddProposal,
+};
+
+type queryGetUserResponseParams = {
+  value: QueryGetUserResponse,
+};
+
+type msgVoteonProposalResponseParams = {
+  value: MsgVoteonProposalResponse,
+};
+
+type queryParamsResponseParams = {
+  value: QueryParamsResponse,
 };
 
 type msgUpdateParamsParams = {
   value: MsgUpdateParams,
 };
 
-type msgUpdateParamsResponseParams = {
-  value: MsgUpdateParamsResponse,
+type msgUpdateUserParams = {
+  value: MsgUpdateUser,
 };
 
 type paramsParams = {
   value: Params,
 };
 
+type queryGetUserRequestParams = {
+  value: QueryGetUserRequest,
+};
+
 type queryParamsRequestParams = {
   value: QueryParamsRequest,
 };
 
-type queryParamsResponseParams = {
-  value: QueryParamsResponse,
+type msgCreateUserResponseParams = {
+  value: MsgCreateUserResponse,
+};
+
+type msgUpdateUserResponseParams = {
+  value: MsgUpdateUserResponse,
+};
+
+type msgDeleteUserParams = {
+  value: MsgDeleteUser,
+};
+
+type msgDeleteUserResponseParams = {
+  value: MsgDeleteUserResponse,
+};
+
+type msgAddCitizenResponseParams = {
+  value: MsgAddCitizenResponse,
+};
+
+type msgVoteonProposalParams = {
+  value: MsgVoteonProposal,
+};
+
+type userParams = {
+  value: User,
+};
+
+type genesisStateParams = {
+  value: GenesisState,
+};
+
+type msgUpdateParamsResponseParams = {
+  value: MsgUpdateParamsResponse,
+};
+
+type msgAddCitizenParams = {
+  value: MsgAddCitizen,
+};
+
+type msgAddProposalResponseParams = {
+  value: MsgAddProposalResponse,
+};
+
+type queryAllUserRequestParams = {
+  value: QueryAllUserRequest,
+};
+
+type queryAllUserResponseParams = {
+  value: QueryAllUserResponse,
 };
 
 
@@ -107,73 +294,59 @@ export const txClient = ({ signer, prefix, addr }: TxClientOptions = { addr: "ht
 
   return {
 		
-		async sendGenesisState({ value, fee, memo }: sendGenesisStateParams): Promise<DeliverTxResponse> {
+		async sendMsgCreateUser({ value, fee, memo }: sendMsgCreateUserParams): Promise<DeliverTxResponse> {
 			if (!signer) {
-					throw new Error('TxClient:sendGenesisState: Unable to sign Tx. Signer is not present.')
+					throw new Error('TxClient:sendMsgCreateUser: Unable to sign Tx. Signer is not present.')
 			}
 			try {			
 				const { address } = (await signer.getAccounts())[0]; 
 				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
-				let msg = this.genesisState({ value: GenesisState.fromPartial(value) })
+				let msg = this.msgCreateUser({ value: MsgCreateUser.fromPartial(value) })
 				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
 			} catch (e: any) {
-				throw new Error('TxClient:sendGenesisState: Could not broadcast Tx: '+ e.message)
+				throw new Error('TxClient:sendMsgCreateUser: Could not broadcast Tx: '+ e.message)
 			}
 		},
 		
-		async sendMsgUpdateParams({ value, fee, memo }: sendMsgUpdateParamsParams): Promise<DeliverTxResponse> {
+		async sendMsgAddProposal({ value, fee, memo }: sendMsgAddProposalParams): Promise<DeliverTxResponse> {
 			if (!signer) {
-					throw new Error('TxClient:sendMsgUpdateParams: Unable to sign Tx. Signer is not present.')
+					throw new Error('TxClient:sendMsgAddProposal: Unable to sign Tx. Signer is not present.')
 			}
 			try {			
 				const { address } = (await signer.getAccounts())[0]; 
 				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
-				let msg = this.msgUpdateParams({ value: MsgUpdateParams.fromPartial(value) })
+				let msg = this.msgAddProposal({ value: MsgAddProposal.fromPartial(value) })
 				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
 			} catch (e: any) {
-				throw new Error('TxClient:sendMsgUpdateParams: Could not broadcast Tx: '+ e.message)
+				throw new Error('TxClient:sendMsgAddProposal: Could not broadcast Tx: '+ e.message)
 			}
 		},
 		
-		async sendMsgUpdateParamsResponse({ value, fee, memo }: sendMsgUpdateParamsResponseParams): Promise<DeliverTxResponse> {
+		async sendQueryGetUserResponse({ value, fee, memo }: sendQueryGetUserResponseParams): Promise<DeliverTxResponse> {
 			if (!signer) {
-					throw new Error('TxClient:sendMsgUpdateParamsResponse: Unable to sign Tx. Signer is not present.')
+					throw new Error('TxClient:sendQueryGetUserResponse: Unable to sign Tx. Signer is not present.')
 			}
 			try {			
 				const { address } = (await signer.getAccounts())[0]; 
 				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
-				let msg = this.msgUpdateParamsResponse({ value: MsgUpdateParamsResponse.fromPartial(value) })
+				let msg = this.queryGetUserResponse({ value: QueryGetUserResponse.fromPartial(value) })
 				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
 			} catch (e: any) {
-				throw new Error('TxClient:sendMsgUpdateParamsResponse: Could not broadcast Tx: '+ e.message)
+				throw new Error('TxClient:sendQueryGetUserResponse: Could not broadcast Tx: '+ e.message)
 			}
 		},
 		
-		async sendParams({ value, fee, memo }: sendParamsParams): Promise<DeliverTxResponse> {
+		async sendMsgVoteonProposalResponse({ value, fee, memo }: sendMsgVoteonProposalResponseParams): Promise<DeliverTxResponse> {
 			if (!signer) {
-					throw new Error('TxClient:sendParams: Unable to sign Tx. Signer is not present.')
+					throw new Error('TxClient:sendMsgVoteonProposalResponse: Unable to sign Tx. Signer is not present.')
 			}
 			try {			
 				const { address } = (await signer.getAccounts())[0]; 
 				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
-				let msg = this.params({ value: Params.fromPartial(value) })
+				let msg = this.msgVoteonProposalResponse({ value: MsgVoteonProposalResponse.fromPartial(value) })
 				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
 			} catch (e: any) {
-				throw new Error('TxClient:sendParams: Could not broadcast Tx: '+ e.message)
-			}
-		},
-		
-		async sendQueryParamsRequest({ value, fee, memo }: sendQueryParamsRequestParams): Promise<DeliverTxResponse> {
-			if (!signer) {
-					throw new Error('TxClient:sendQueryParamsRequest: Unable to sign Tx. Signer is not present.')
-			}
-			try {			
-				const { address } = (await signer.getAccounts())[0]; 
-				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
-				let msg = this.queryParamsRequest({ value: QueryParamsRequest.fromPartial(value) })
-				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
-			} catch (e: any) {
-				throw new Error('TxClient:sendQueryParamsRequest: Could not broadcast Tx: '+ e.message)
+				throw new Error('TxClient:sendMsgVoteonProposalResponse: Could not broadcast Tx: '+ e.message)
 			}
 		},
 		
@@ -191,12 +364,296 @@ export const txClient = ({ signer, prefix, addr }: TxClientOptions = { addr: "ht
 			}
 		},
 		
-		
-		genesisState({ value }: genesisStateParams): EncodeObject {
-			try {
-				return { typeUrl: "/example.example.GenesisState", value: GenesisState.fromPartial( value ) }  
+		async sendMsgUpdateParams({ value, fee, memo }: sendMsgUpdateParamsParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendMsgUpdateParams: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
+				let msg = this.msgUpdateParams({ value: MsgUpdateParams.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
 			} catch (e: any) {
-				throw new Error('TxClient:GenesisState: Could not create message: ' + e.message)
+				throw new Error('TxClient:sendMsgUpdateParams: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		async sendMsgUpdateUser({ value, fee, memo }: sendMsgUpdateUserParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendMsgUpdateUser: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
+				let msg = this.msgUpdateUser({ value: MsgUpdateUser.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendMsgUpdateUser: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		async sendParams({ value, fee, memo }: sendParamsParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendParams: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
+				let msg = this.params({ value: Params.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendParams: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		async sendQueryGetUserRequest({ value, fee, memo }: sendQueryGetUserRequestParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendQueryGetUserRequest: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
+				let msg = this.queryGetUserRequest({ value: QueryGetUserRequest.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendQueryGetUserRequest: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		async sendQueryParamsRequest({ value, fee, memo }: sendQueryParamsRequestParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendQueryParamsRequest: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
+				let msg = this.queryParamsRequest({ value: QueryParamsRequest.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendQueryParamsRequest: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		async sendMsgCreateUserResponse({ value, fee, memo }: sendMsgCreateUserResponseParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendMsgCreateUserResponse: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
+				let msg = this.msgCreateUserResponse({ value: MsgCreateUserResponse.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendMsgCreateUserResponse: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		async sendMsgUpdateUserResponse({ value, fee, memo }: sendMsgUpdateUserResponseParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendMsgUpdateUserResponse: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
+				let msg = this.msgUpdateUserResponse({ value: MsgUpdateUserResponse.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendMsgUpdateUserResponse: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		async sendMsgDeleteUser({ value, fee, memo }: sendMsgDeleteUserParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendMsgDeleteUser: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
+				let msg = this.msgDeleteUser({ value: MsgDeleteUser.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendMsgDeleteUser: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		async sendMsgDeleteUserResponse({ value, fee, memo }: sendMsgDeleteUserResponseParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendMsgDeleteUserResponse: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
+				let msg = this.msgDeleteUserResponse({ value: MsgDeleteUserResponse.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendMsgDeleteUserResponse: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		async sendMsgAddCitizenResponse({ value, fee, memo }: sendMsgAddCitizenResponseParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendMsgAddCitizenResponse: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
+				let msg = this.msgAddCitizenResponse({ value: MsgAddCitizenResponse.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendMsgAddCitizenResponse: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		async sendMsgVoteonProposal({ value, fee, memo }: sendMsgVoteonProposalParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendMsgVoteonProposal: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
+				let msg = this.msgVoteonProposal({ value: MsgVoteonProposal.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendMsgVoteonProposal: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		async sendUser({ value, fee, memo }: sendUserParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendUser: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
+				let msg = this.user({ value: User.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendUser: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		async sendGenesisState({ value, fee, memo }: sendGenesisStateParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendGenesisState: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
+				let msg = this.genesisState({ value: GenesisState.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendGenesisState: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		async sendMsgUpdateParamsResponse({ value, fee, memo }: sendMsgUpdateParamsResponseParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendMsgUpdateParamsResponse: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
+				let msg = this.msgUpdateParamsResponse({ value: MsgUpdateParamsResponse.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendMsgUpdateParamsResponse: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		async sendMsgAddCitizen({ value, fee, memo }: sendMsgAddCitizenParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendMsgAddCitizen: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
+				let msg = this.msgAddCitizen({ value: MsgAddCitizen.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendMsgAddCitizen: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		async sendMsgAddProposalResponse({ value, fee, memo }: sendMsgAddProposalResponseParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendMsgAddProposalResponse: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
+				let msg = this.msgAddProposalResponse({ value: MsgAddProposalResponse.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendMsgAddProposalResponse: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		async sendQueryAllUserRequest({ value, fee, memo }: sendQueryAllUserRequestParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendQueryAllUserRequest: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
+				let msg = this.queryAllUserRequest({ value: QueryAllUserRequest.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendQueryAllUserRequest: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		async sendQueryAllUserResponse({ value, fee, memo }: sendQueryAllUserResponseParams): Promise<DeliverTxResponse> {
+			if (!signer) {
+					throw new Error('TxClient:sendQueryAllUserResponse: Unable to sign Tx. Signer is not present.')
+			}
+			try {			
+				const { address } = (await signer.getAccounts())[0]; 
+				const signingClient = await SigningStargateClient.connectWithSigner(addr,signer,{registry});
+				let msg = this.queryAllUserResponse({ value: QueryAllUserResponse.fromPartial(value) })
+				return await signingClient.signAndBroadcast(address, [msg], fee ? fee : defaultFee, memo)
+			} catch (e: any) {
+				throw new Error('TxClient:sendQueryAllUserResponse: Could not broadcast Tx: '+ e.message)
+			}
+		},
+		
+		
+		msgCreateUser({ value }: msgCreateUserParams): EncodeObject {
+			try {
+				return { typeUrl: "/example.example.MsgCreateUser", value: MsgCreateUser.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:MsgCreateUser: Could not create message: ' + e.message)
+			}
+		},
+		
+		msgAddProposal({ value }: msgAddProposalParams): EncodeObject {
+			try {
+				return { typeUrl: "/example.example.MsgAddProposal", value: MsgAddProposal.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:MsgAddProposal: Could not create message: ' + e.message)
+			}
+		},
+		
+		queryGetUserResponse({ value }: queryGetUserResponseParams): EncodeObject {
+			try {
+				return { typeUrl: "/example.example.QueryGetUserResponse", value: QueryGetUserResponse.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:QueryGetUserResponse: Could not create message: ' + e.message)
+			}
+		},
+		
+		msgVoteonProposalResponse({ value }: msgVoteonProposalResponseParams): EncodeObject {
+			try {
+				return { typeUrl: "/example.example.MsgVoteonProposalResponse", value: MsgVoteonProposalResponse.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:MsgVoteonProposalResponse: Could not create message: ' + e.message)
+			}
+		},
+		
+		queryParamsResponse({ value }: queryParamsResponseParams): EncodeObject {
+			try {
+				return { typeUrl: "/example.example.QueryParamsResponse", value: QueryParamsResponse.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:QueryParamsResponse: Could not create message: ' + e.message)
 			}
 		},
 		
@@ -208,11 +665,11 @@ export const txClient = ({ signer, prefix, addr }: TxClientOptions = { addr: "ht
 			}
 		},
 		
-		msgUpdateParamsResponse({ value }: msgUpdateParamsResponseParams): EncodeObject {
+		msgUpdateUser({ value }: msgUpdateUserParams): EncodeObject {
 			try {
-				return { typeUrl: "/example.example.MsgUpdateParamsResponse", value: MsgUpdateParamsResponse.fromPartial( value ) }  
+				return { typeUrl: "/example.example.MsgUpdateUser", value: MsgUpdateUser.fromPartial( value ) }  
 			} catch (e: any) {
-				throw new Error('TxClient:MsgUpdateParamsResponse: Could not create message: ' + e.message)
+				throw new Error('TxClient:MsgUpdateUser: Could not create message: ' + e.message)
 			}
 		},
 		
@@ -224,6 +681,14 @@ export const txClient = ({ signer, prefix, addr }: TxClientOptions = { addr: "ht
 			}
 		},
 		
+		queryGetUserRequest({ value }: queryGetUserRequestParams): EncodeObject {
+			try {
+				return { typeUrl: "/example.example.QueryGetUserRequest", value: QueryGetUserRequest.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:QueryGetUserRequest: Could not create message: ' + e.message)
+			}
+		},
+		
 		queryParamsRequest({ value }: queryParamsRequestParams): EncodeObject {
 			try {
 				return { typeUrl: "/example.example.QueryParamsRequest", value: QueryParamsRequest.fromPartial( value ) }  
@@ -232,11 +697,107 @@ export const txClient = ({ signer, prefix, addr }: TxClientOptions = { addr: "ht
 			}
 		},
 		
-		queryParamsResponse({ value }: queryParamsResponseParams): EncodeObject {
+		msgCreateUserResponse({ value }: msgCreateUserResponseParams): EncodeObject {
 			try {
-				return { typeUrl: "/example.example.QueryParamsResponse", value: QueryParamsResponse.fromPartial( value ) }  
+				return { typeUrl: "/example.example.MsgCreateUserResponse", value: MsgCreateUserResponse.fromPartial( value ) }  
 			} catch (e: any) {
-				throw new Error('TxClient:QueryParamsResponse: Could not create message: ' + e.message)
+				throw new Error('TxClient:MsgCreateUserResponse: Could not create message: ' + e.message)
+			}
+		},
+		
+		msgUpdateUserResponse({ value }: msgUpdateUserResponseParams): EncodeObject {
+			try {
+				return { typeUrl: "/example.example.MsgUpdateUserResponse", value: MsgUpdateUserResponse.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:MsgUpdateUserResponse: Could not create message: ' + e.message)
+			}
+		},
+		
+		msgDeleteUser({ value }: msgDeleteUserParams): EncodeObject {
+			try {
+				return { typeUrl: "/example.example.MsgDeleteUser", value: MsgDeleteUser.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:MsgDeleteUser: Could not create message: ' + e.message)
+			}
+		},
+		
+		msgDeleteUserResponse({ value }: msgDeleteUserResponseParams): EncodeObject {
+			try {
+				return { typeUrl: "/example.example.MsgDeleteUserResponse", value: MsgDeleteUserResponse.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:MsgDeleteUserResponse: Could not create message: ' + e.message)
+			}
+		},
+		
+		msgAddCitizenResponse({ value }: msgAddCitizenResponseParams): EncodeObject {
+			try {
+				return { typeUrl: "/example.example.MsgAddCitizenResponse", value: MsgAddCitizenResponse.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:MsgAddCitizenResponse: Could not create message: ' + e.message)
+			}
+		},
+		
+		msgVoteonProposal({ value }: msgVoteonProposalParams): EncodeObject {
+			try {
+				return { typeUrl: "/example.example.MsgVoteonProposal", value: MsgVoteonProposal.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:MsgVoteonProposal: Could not create message: ' + e.message)
+			}
+		},
+		
+		user({ value }: userParams): EncodeObject {
+			try {
+				return { typeUrl: "/example.example.User", value: User.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:User: Could not create message: ' + e.message)
+			}
+		},
+		
+		genesisState({ value }: genesisStateParams): EncodeObject {
+			try {
+				return { typeUrl: "/example.example.GenesisState", value: GenesisState.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:GenesisState: Could not create message: ' + e.message)
+			}
+		},
+		
+		msgUpdateParamsResponse({ value }: msgUpdateParamsResponseParams): EncodeObject {
+			try {
+				return { typeUrl: "/example.example.MsgUpdateParamsResponse", value: MsgUpdateParamsResponse.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:MsgUpdateParamsResponse: Could not create message: ' + e.message)
+			}
+		},
+		
+		msgAddCitizen({ value }: msgAddCitizenParams): EncodeObject {
+			try {
+				return { typeUrl: "/example.example.MsgAddCitizen", value: MsgAddCitizen.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:MsgAddCitizen: Could not create message: ' + e.message)
+			}
+		},
+		
+		msgAddProposalResponse({ value }: msgAddProposalResponseParams): EncodeObject {
+			try {
+				return { typeUrl: "/example.example.MsgAddProposalResponse", value: MsgAddProposalResponse.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:MsgAddProposalResponse: Could not create message: ' + e.message)
+			}
+		},
+		
+		queryAllUserRequest({ value }: queryAllUserRequestParams): EncodeObject {
+			try {
+				return { typeUrl: "/example.example.QueryAllUserRequest", value: QueryAllUserRequest.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:QueryAllUserRequest: Could not create message: ' + e.message)
+			}
+		},
+		
+		queryAllUserResponse({ value }: queryAllUserResponseParams): EncodeObject {
+			try {
+				return { typeUrl: "/example.example.QueryAllUserResponse", value: QueryAllUserResponse.fromPartial( value ) }  
+			} catch (e: any) {
+				throw new Error('TxClient:QueryAllUserResponse: Could not create message: ' + e.message)
 			}
 		},
 		
